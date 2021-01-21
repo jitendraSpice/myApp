@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { ApiService } from '../api.service';
 @Component({
   selector: 'app-explore-container',
   templateUrl: './explore-container.component.html',
@@ -8,8 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
 
-  constructor() { }
+  constructor(public api: ApiService) { }
 
   ngOnInit() {}
-
+  captureDevice(){
+    this.api.customMethodData();
+  }
 }

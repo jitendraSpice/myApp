@@ -8,14 +8,17 @@ import { ApiService } from '../api.service';
 export class Tab1Page {
   dataUser: any;
   constructor(public api: ApiService) { }
-  ngOnInit() {
-    this.getUserData();
+  ngOnInit() { 
+    // this.getUserData();
+    
+  }
+  captureDevice(){
     this.api.customMethodData();
   }
   async getUserData() {
     await this.api.getDataUser().subscribe(res => {
       this.dataUser = res;
-      console.log(this.dataUser);
+      console.log('sadadasdasd', this.dataUser);
     }, error => {
       console.log('error', error);
     })

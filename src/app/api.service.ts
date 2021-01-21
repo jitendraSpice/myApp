@@ -16,7 +16,7 @@ const apiUrl = 'http://localhost:3000/sender/8199063979';
 export class ApiService {
   httpRequest: any;
   constructor(private http: HttpClient) { }
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse) {    
     if (error.error instanceof ErrorEvent) {
       console.log('An error occured::', error.error.message);
     } else {
@@ -45,14 +45,14 @@ export class ApiService {
 
     // listen for `load` event
     xhr.onload = () => {
-      console.log(xhr.responseText);
+      console.log('device info response',xhr.responseText);
       this.deviceCapture();
     };
   }
 
   deviceCapture() {
     const xhr = new XMLHttpRequest();
-    xhr.open('CAPTURE', 'http://https://127.0.0.1:11100');
+    xhr.open('CAPTURE', 'https://127.0.0.1:11100');
     const reqParam = '<?xml version="1.0"?> <PidOptions ver="1.0"> <Opts fCount="1" fType="0" iCount="0" pCount="0" format="0"   pidVer="2.0" timeout="10000" posh="UNKNOWN" env="P" /> <CustOpts><Param name="mantrakey" value="undefined" /></CustOpts> </PidOptions>';
     xhr.setRequestHeader('Content-Type', 'text/xml');
 
